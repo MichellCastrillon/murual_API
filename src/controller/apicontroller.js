@@ -67,6 +67,16 @@ const recibir = async (req, res) => {
                 } else {
                     messageUtils.sendMessage(number, "No tienes clientes asignados actualmente.");
                 }
+
+                if (text.includes("encuesta")){
+                    endSession();
+                    console.log("Se cierra la sesion con cliente");
+                }
+
+                for (const client in activeChats) {     
+                    console.log(`Cliente: ${client}, Datos:`, activeChats[client]);
+                }
+
                 return res.send("EVENT_RECEIVED");
             } else {
                 // Verificar si el cliente está en una conversación activa;
