@@ -1,4 +1,4 @@
-const agents = require('../models/agents');
+//const agents = require('../models/agents');
 const chats = require('../models/chats');
 const { sendMessage } = require('../utils/messageUtils');
 
@@ -20,7 +20,7 @@ exports.endSession = (req, res) => {
 
     if (chats.isAgentAssignedToClient(agentId, clientNumber)) {
         chats.endChat(clientNumber);
-        agents.markAvailable(agentId);
+        //agents.markAvailable(agentId);
         res.send({ message: "Sesión finalizada." });
     } else {
         res.status(400).send({ message: "No tienes una sesión activa con este cliente." });
