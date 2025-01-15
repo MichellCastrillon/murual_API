@@ -140,6 +140,7 @@ const assignAgent = () => {
 
 // Función para finalizar una sesión
 const endSession = (agentPhone, clientNumber) => {
+    console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
     if (activeChats[clientNumber] === agentPhone) {
         delete activeChats[clientNumber]; // Eliminar la sesión activa
         const agent = availableAgents.find(agent => agent.phone === agentPhone);
