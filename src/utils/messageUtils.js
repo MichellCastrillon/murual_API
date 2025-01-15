@@ -15,10 +15,10 @@ exports.sendMessage = (to, message) => {
             body: message,
         }
     });
-
+    
     const options = {
         host: "graph.facebook.com",
-        path: "/v20.0/392632663943668/messages",
+        path: "/v21.0/509530568916826/messages",
         method: "POST",
         body: data,
         headers: {
