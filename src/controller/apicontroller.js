@@ -5,7 +5,7 @@ const messageUtils = require("../utils/messageUtils");
 const waitingQueue = [];
 const activeChats = {}; // { clientNumber: agentPhoneNumber }
 const availableAgents = [
-    { phone: "", busy: false }, // Agente 1
+    { phone: "573118970552", busy: false }, // Agente 1
     { phone: "", busy: false }, // Agente 2
 ]; // Lista de agentes con sus números de teléfono
 
