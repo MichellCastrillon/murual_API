@@ -69,7 +69,7 @@ const recibir = async (req, res) => {
                 }
 
                 if (text.includes("encuesta")){
-                    endSession();
+                    endSession(agent.phone,assignedClient);
                     console.log("Se cierra la sesion con cliente");
                 }
 
