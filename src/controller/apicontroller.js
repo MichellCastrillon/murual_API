@@ -69,8 +69,7 @@ const recibir = async (req, res) => {
                 }
 
                 if (text.includes("encuesta")){
-                    console.log(agent.phone, assignedClient, number);
-                    endSession();
+                    endSession(agent.phone, assignedClient);
                     console.log("Se cierra la sesion con cliente");
                 }
 
@@ -146,6 +145,7 @@ const endSession = (agentPhone, clientNumber) => {
         delete activeChats[clientNumber]; // Eliminar la sesión activa
         const agent = availableAgents.find(agent => agent.phone === agentPhone);
         if (agent) agent.busy = false; // Marcar al agente como disponible
+        console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
         console.log(`Sesión finalizada entre el cliente ${clientNumber} y el agente ${agentPhone}`);
     }
 };
