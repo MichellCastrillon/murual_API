@@ -119,7 +119,7 @@ const assignAgent = () => {
     console.log(`linea 119 Cola de espera: ${waitingQueue.length}`);
     if (waitingQueue.length > 0) {
         const availableAgent = availableAgents.find(agent => !agent.busy);
-        console.log(`revision agente disponible: ${availableAgent}` );
+        console.log(`revision agente disponible: ${availableAgent.phone}` );
 
         if (availableAgent) {
             const client = waitingQueue.shift(); // Sacar al cliente de la cola
