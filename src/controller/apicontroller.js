@@ -147,14 +147,17 @@ const endSession = (agentPhone, clientNumber) => {
         if (agent) agent.busy = false; // Marcar al agente como disponible
         console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
         console.log(`Sesión finalizada entre el cliente ${clientNumber} y el agente ${agentPhone}`);
+        console.log(`Cola de espera: ${waitingQueue.length}`);
+        assignAgent();
     }
     //llama la funcion que revisa la cosa de espera
-    processQueue();
+    //processQueue();
 };
 
 //Función que revisa la cola de espera y llama la funcion assignAgent si hay usuarios esperando
 const processQueue = () => {
     console.log("Procesando la cola de espera...");
+    console.log(`Cola de espera: ${waitingQueue.length}`);
     if (waitingQueue.length > 0) {
         assignAgent();
     } else {
