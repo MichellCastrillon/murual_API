@@ -148,6 +148,24 @@ const endSession = (agentPhone, clientNumber) => {
         console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
         console.log(`Sesión finalizada entre el cliente ${clientNumber} y el agente ${agentPhone}`);
     }
+    //llama la funcion que revisa la cosa de espera
+    processQueue();
+};
+
+//Función que revisa la cola de espera y llama la funcion assignAgent si hay usuarios esperando
+const processQueue = () => {
+    console.log("Procesando la cola de espera...");
+    if (waitingQueue.length > 0) {
+        assignAgent();
+    } else {
+        console.log("No hay clientes en la cola de espera.");
+    }
+};
+
+// Configurar un intervalo para revisar la cola cada cierto tiempo
+const startQueueProcessor = (interval = 5000) => {
+    console.log(`Iniciando el procesador de la cola con un intervalo de ${interval} ms`);
+    setInterval(processQueue, interval);
 };
 
 // Exportar funciones
@@ -156,4 +174,6 @@ module.exports = {
     recibir,
     assignAgent,
     endSession,
+    processQueue,
+    startQueueProcessor
 };
