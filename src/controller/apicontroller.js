@@ -6,7 +6,7 @@ const waitingQueue = [];
 const activeChats = {}; // { clientNumber: agentPhoneNumber }
 const availableAgents = [
     { phone: "50377463793", busy: false }, // Agente 1
-    { phone: "", busy: false }, // Agente 2
+    { phone: "50373685289", busy: false }, // Agente 2
 ]; // Lista de agentes con sus números de teléfono
 
 
