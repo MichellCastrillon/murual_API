@@ -6,7 +6,7 @@ const waitingQueue = [];
 const activeChats = {}; // { clientNumber: agentPhoneNumber }
 const availableAgents = [
     { phone: "50377463793", busy: false }, // Agente 1
-    { phone: "50373685289", busy: false }, // Agente 2
+    { phone: "", busy: false }, // Agente 2
 ]; // Lista de agentes con sus números de teléfono
 
 
@@ -175,6 +175,8 @@ const startQueueProcessor = (interval = 5000) => {
     console.log(`Iniciando el procesador de la cola con un intervalo de ${interval} ms`);
     setInterval(processQueue, interval);
 };
+
+startQueueProcessor(5000);
 
 // Exportar funciones
 module.exports = {
