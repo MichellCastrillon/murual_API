@@ -121,20 +121,24 @@ const assignAgent = () => {
         const availableAgent = availableAgents.find(agent => !agent.busy);
         console.log(`revision agente disponible: ${availableAgent.phone}` );
 
-        if (availableAgent) {
-            const client = waitingQueue.shift(); // Sacar al cliente de la cola
-            console.log(`Cliente sacado de cola de espera: ${client}`);
-            availableAgent.busy = true; // Marcar al agente como ocupado
-            
-            activeChats[client] = { agentPhone: availableAgent.phone }; //Insertar 
-            console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
+        if( availableAgent.phone != '' && availableAgent.phone != undefined ){
+            if (availableAgent) {
+                const client = waitingQueue.shift(); // Sacar al cliente de la cola
+                console.log(`Cliente sacado de cola de espera: ${client}`);
+                availableAgent.busy = true; // Marcar al agente como ocupado
+                
+                activeChats[client] = { agentPhone: availableAgent.phone }; //Insertar 
+                console.log("Active Chats:", JSON.stringify(activeChats, null, 2));
 
-            // Notificar al cliente y al agente
-            //messageUtils.sendMessage(client, `Hola, soy tu agente asignado. Estoy aquí para ayudarte.`);
-            messageUtils.sendMessage(availableAgent.phone, `Nuevo cliente asignado: ${client}.`);
-            console.log(`Cliente ${client} asignado al agente ${availableAgent.phone}`);
+                // Notificar al cliente y al agente
+                //messageUtils.sendMessage(client, `Hola, soy tu agente asignado. Estoy aquí para ayudarte.`);
+                messageUtils.sendMessage(availableAgent.phone, `Nuevo cliente asignado: ${client}.`);
+                console.log(`Cliente ${client} asignado al agente ${availableAgent.phone}`);
+            } else {
+                console.log("No hay agentes disponibles en este momento.");
+            }
         } else {
-            console.log("No hay agentes disponibles en este momento.");
+            console.log(`no hay agente disponibles en este momento, clientes en cola ${waitingQueue.length}`);
         }
     }
 };
