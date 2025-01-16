@@ -176,7 +176,7 @@ const startQueueProcessor = (interval = 5000) => {
     setInterval(processQueue, interval);
 };
 
-startQueueProcessor(5000);
+//startQueueProcessor(5000);
 
 // Exportar funciones
 module.exports = {
