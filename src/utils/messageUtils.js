@@ -1,6 +1,6 @@
 const https = require('https');
 
-const ACCESS_TOKEN = "EAAPVeGhesjMBO8iZCBvGW9q9fc5y8K8OHyOCjEnigWSPZAJBrfgxDnvtZAZCh5deIJO11lQXQL2WxCbX8lWC2ueEZCIEVhxzZCFAm1xsyPx2pSJ51ZANe9Wido1iqQAZCXzPWWI8II0dZCs4j5PLp50Ecu7Ffa8Yk1zdlaK4UFZB2ZCZAIDi9nDC0rFS8AI2B6tWNvHHHYtuy4Tg658TC8A2iZARL3QiZAUIoZD"; // Token de acceso de la API de WhatsApp
+const ACCESS_TOKEN = "EAAPVeGhesjMBO2NUrO2Sz5IGS7QfZC6uZBK7oiof4VoszwP6quE2G2auR76yhYLFSzsChoiv6tif0sFKGSviLjvxtFpJjgXv3GHaMncRBzIrZBbVvnmMSFRWERNNd7xK6sIdTLv8NCeYPJUMvpGZAOztmRZCytZBPx2Lc4V3ZBhertJ8fhezp0m4zI62fd9r8k3XX4tCiiXlYw3hGPEpjK2SZBCVaZAgZD"; // Token de acceso de la API de WhatsApp
 
 exports.sendMessage = (to, message) => {
     //const phoneNumberId = "TU_PHONE_NUMBER_ID";
